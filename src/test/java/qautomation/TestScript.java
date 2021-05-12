@@ -1,10 +1,5 @@
 package qautomation;
 
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeTest;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -13,12 +8,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.Assert;
+import org.testng.AssertJUnit;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 public class TestScript {
 
@@ -43,13 +39,10 @@ public class TestScript {
 	}
 	else if(browser.equalsIgnoreCase("FireFox"))
 	{
-		System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE,"true");
-		System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,System.getProperty("user.dir")+"\\FireFoxLogs.txt");
 		System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"\\geckodriver_v23.exe");
 		FirefoxProfile profile = new FirefoxProfile();	    
 		profile.setAcceptUntrustedCertificates(false);
-	    FirefoxOptions options = new FirefoxOptions().setProfile(profile);
-	    driver = new FirefoxDriver(options);
+	    driver = new FirefoxDriver(profile);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	    driver.manage().window().maximize();
 	}
