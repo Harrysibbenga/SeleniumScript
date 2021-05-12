@@ -39,7 +39,7 @@ public class TestScript {
 	}
 	else if(browser.equalsIgnoreCase("FireFox"))
 	{
-		System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"\\geckodriver_v23.exe");
+		System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"\\geckodriver.exe");
 		FirefoxProfile profile = new FirefoxProfile();	    
 		profile.setAcceptUntrustedCertificates(false);
 	    driver = new FirefoxDriver(profile);
