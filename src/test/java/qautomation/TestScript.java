@@ -13,14 +13,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-//import org.openqa.selenium.firefox.FirefoxOptions;
-//import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 
-@SuppressWarnings("unused")
 public class TestScript {
 
 	public static WebDriver driver=null;
@@ -44,13 +43,13 @@ public class TestScript {
 	}
 	else if(browser.equalsIgnoreCase("FireFox"))
 	{
-//		System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE,"true");
-//		System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,System.getProperty("user.dir")+"\\FireFoxLogs.txt");
+		System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE,"true");
+		System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,System.getProperty("user.dir")+"\\FireFoxLogs.txt");
 		System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"\\geckodriver_v23.exe");
-//		FirefoxProfile profile = new FirefoxProfile();	    
-//		profile.setAcceptUntrustedCertificates(false);
-//	    FirefoxOptions options = new FirefoxOptions().setProfile(profile);
-	    driver = new FirefoxDriver();
+		FirefoxProfile profile = new FirefoxProfile();	    
+		profile.setAcceptUntrustedCertificates(false);
+	    FirefoxOptions options = new FirefoxOptions().setProfile(profile);
+	    driver = new FirefoxDriver(options);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	    driver.manage().window().maximize();
 	}
