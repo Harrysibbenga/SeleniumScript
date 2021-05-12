@@ -27,7 +27,7 @@ public class TestScript {
 	
 	if(browser.equalsIgnoreCase("Chrome"))
 	{
-	System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\chromedriver.exe");
+	System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//chromedriver.exe");
 	Map<String, Object> prefs = new HashMap<String, Object>();
 	ChromeOptions options = new ChromeOptions();
 	options.setExperimentalOption("prefs", prefs);
@@ -39,7 +39,7 @@ public class TestScript {
 	}
 	else if(browser.equalsIgnoreCase("FireFox"))
 	{
-		System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"\\geckodriver.exe");
+		System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"//geckodriver.exe");
 		FirefoxProfile profile = new FirefoxProfile();	    
 		profile.setAcceptUntrustedCertificates(false);
 	    driver = new FirefoxDriver(profile);
@@ -48,7 +48,7 @@ public class TestScript {
 	}
 	else if (browser.equalsIgnoreCase("IE"))
 	{
-		System.setProperty("webdriver.ie.driver", System.getProperty("user.dir")+"\\IEDriverServer351.exe");
+		System.setProperty("webdriver.ie.driver", System.getProperty("user.dir")+"//IEDriverServer351.exe");
 		DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
 		caps.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
 		caps.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING,true);
